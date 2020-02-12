@@ -84,7 +84,7 @@ abstract class Funcionario implements Contrato{
     }
     
     @Override
-    public void puniçao(){
+    public void puniÃ§ao(){
         this.salario = this.salario - 200;
     }
 }
