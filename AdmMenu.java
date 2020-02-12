@@ -13,6 +13,7 @@ public class AdmMenu {
     Scanner in = new Scanner(System.in);
     ArrayList<Funcionario> fc = new ArrayList();
     boolean j = true;
+    FuncaoAux funcao = new FuncaoAux();
     
     public boolean verificarDisponibilidade(){
         
@@ -24,7 +25,7 @@ public class AdmMenu {
             if(fn.getFuncao().equals("Piloto")){
                 disp1 = fn.getDisponibilidade();                
             }
-            if(fn.getFuncao().equals("AeromoÁa")){
+            if(fn.getFuncao().equals("Aeromo√ßa")){
                 disp2 = fn.getDisponibilidade();                
             }
             if(fn.getFuncao().equals("Faxineiro")){
@@ -36,7 +37,7 @@ public class AdmMenu {
                     if(fnAux.getFuncao().equals("Piloto")){
                         fnAux.setDisponibilidade(false);                
                     }
-                    if(fnAux.getFuncao().equals("AeromoÁa")){
+                    if(fnAux.getFuncao().equals("Aeromo√ßa")){
                         fnAux.setDisponibilidade(false);                
                     }
                     if(fnAux.getFuncao().equals("Faxineiro")){
@@ -57,7 +58,7 @@ public class AdmMenu {
                 if(!fnn.getDisponibilidade())
                 fnn.setDisponibilidade(true);
             }
-            if(fnn.getFuncao().equals("AeromoÁa")){
+            if(fnn.getFuncao().equals("Aeromo√ßa")){
                 if(!fnn.getDisponibilidade())  
                 fnn.setDisponibilidade(true);
             }
@@ -73,14 +74,14 @@ public class AdmMenu {
         opcaoadmMenu = 0;
         
         do{
-            System.out.println("\t\t## Gestao dos Funcion·rios :: ##");
+            System.out.println("\t\t## Gestao dos Funcion√°rios :: ##");
             System.out.println("\n                  ==============================");
-            System.out.println("                  |     1 - Adicionar funcion·rio              |");
-            System.out.println("                  |     2 - Demitir funcion·rio                |");
-            System.out.println("                  |     3 - Ver lista de funcion·rios          |");
-            System.out.println("                  |     4 - Alterar dados do funcion·rio       |");
-            System.out.println("                  |     5 - Bonificar funcion·rio              |");
-            System.out.println("                  |     6 - Punir funcion·rio              |");
+            System.out.println("                  |     1 - Adicionar funcion√°rio              |");
+            System.out.println("                  |     2 - Demitir funcion√°rio                |");
+            System.out.println("                  |     3 - Ver lista de funcion√°rios          |");
+            System.out.println("                  |     4 - Alterar dados do funcion√°rio       |");
+            System.out.println("                  |     5 - Bonificar funcion√°rio              |");
+            System.out.println("                  |     6 - Punir funcion√°rio                  |");
             System.out.println("                  |     0 - Sair                               |");
             System.out.println("                  ==============================\n");
             System.out.print("Digite sua Opcao -> ");
@@ -98,7 +99,7 @@ public class AdmMenu {
                         System.out.println("Saindo do modo gerenciador");
                         break;
                     case 1:    
-                        System.out.println("Deseja adicionar um funcion·rio?\n1- Sim\n2- N„o");
+                        System.out.println("Deseja adicionar um funcion√°rio?\n1- Sim\n2- N√£o");
                         int adicionar = 0;
 
                         while(j){
@@ -106,19 +107,20 @@ public class AdmMenu {
                                 adicionar = in.nextInt();
                                 in.nextLine();
                                 break;
-                            }catch(NumberFormatException e){
+                            }catch(InputMismatchException e){
+                                in.nextLine();//Sem isso da loop infinito
                                 System.out.println("Digite apenas os valores listados");
                             }
                         }
                             
                         
                         if(adicionar == 1){
-                            System.out.println("Digite os dados do funcion·rio");                          
+                            System.out.println("Digite os dados do funcion√°rio");                          
                             
-                            System.out.println("Digite o nome do funcion·rio");
+                            System.out.println("Digite o nome do funcion√°rio");
                             String fNome = in.nextLine();
 
-                            System.out.println("Digite a idade do funcion·rio");
+                            System.out.println("Digite a idade do funcion√°rio");
                             int fIdade = 0;
                                 while(j){
                                     try{
@@ -137,29 +139,43 @@ public class AdmMenu {
                                             try{
                                                 fIdade = in.nextInt();
                                                 break;
-                                            }catch(NumberFormatException e){
+                                            }catch(InputMismatchException e){
                                                 System.out.println("Digite apenas numeros inteiros");
                                             }
                                         }
                                     }else break;
                                 }
 
-                            System.out.println("Digite o cpf do funcion·rio");
+                            System.out.println("Digite o cpf do funcion√°rio");
                             String fCpf = in.nextLine();
+                            
+                            while(j){  
+                                if(funcao.cpfValido(fCpf)){
+                                    break;
+                                }else{
+                                    System.out.println("Cpf inv√°lido digite novamente");
+                                    fCpf = in.nextLine();
+                                }
+                            } 
 
-                            System.out.println("Escolha a funÁ„o do funcion·rio:\n1- Piloto\n2-AeromoÁa(o)\n3- Faxineiro");
+                            System.out.println("Escolha a fun√ß√£o do funcion√°rio:\n1- Piloto\n2-Aeromo√ßa(o)\n3- Faxineiro");
                             int escolhafuncao = 0;
+                            
                             
                             while(j){
                                 try{
                                     escolhafuncao = in.nextInt();
-                                    break;
-                                }catch(NumberFormatException e){
+                                    if(funcao.entradaValida2(escolhafuncao)){
+                                        break;
+                                    }else{
+                                        System.out.println("Digite apenas os valores listados");
+                                    }
+                                }catch(InputMismatchException e){
                                     System.out.println("Digite apenas os valores listados");
                                 }
                             }
-                            while(j){
-                                if(escolhafuncao < 1 || escolhafuncao > 3){
+                            /*while(j){
+                                if(funcao.entradaValida2(escolhafuncao)){
                                     System.out.println("Digite apenas os valores listados");
                                     while(j){
                                         try{
@@ -170,18 +186,19 @@ public class AdmMenu {
                                         }
                                     }
                                 }else break;
-                            }
+                            }*/
+                            System.out.println(escolhafuncao);
                             String fFuncao;
                                     
                             if(escolhafuncao == 1){
                                 fFuncao = "Piloto";
                             }else if(escolhafuncao == 2){
-                                fFuncao = "AeromoÁa";
+                                fFuncao = "Aeromo√ßa";
                             }else{
                                 fFuncao = "Faxineiro";
                             }
 
-                            System.out.println("Digite o sal·rio");
+                            System.out.println("Digite o sal√°rio");
                             int fSalario = 0;
                             
                             while(j){
@@ -189,12 +206,12 @@ public class AdmMenu {
                                     fSalario = in.nextInt();
                                     break;
                                 }catch(NumberFormatException e){
-                                    System.out.println("Digite apenas valores v·lidos (N˙meros inteiros)");
+                                    System.out.println("Digite apenas valores v√°lidos (N√∫meros inteiros)");
                                 }
                             }
                             while(j){
                                 if(fSalario < 998 || fSalario > 75000){
-                                    System.out.println("Digite apenas valores v·lidos (N > 998 ou 75000 < N)");
+                                    System.out.println("Digite apenas valores v√°lidos (N > 998 ou 75000 < N)");
                                     fSalario = in.nextInt();
                                 }else break;
                             }
@@ -205,8 +222,8 @@ public class AdmMenu {
                                     fun = new Piloto(fNome,fIdade,fSalario,fCpf,fFuncao);
                                     fc.add(fun);
                                     break;
-                                case "AeromoÁa":
-                                    fun = new AeromoÁa(fNome,fIdade,fSalario,fCpf,fFuncao);
+                                case "Aeromo√ßa":
+                                    fun = new Aeromo√ßa(fNome,fIdade,fSalario,fCpf,fFuncao);
                                     fc.add(fun);
                                     break;
                                 case "Faxineiro":
@@ -223,35 +240,41 @@ public class AdmMenu {
                         
                         break;
                     case 2:
-                        System.out.println("Deseja demitir um funcion·rio\n1- Sim\n2- N„o");
+                        System.out.println("Deseja demitir um funcion√°rio\n1- Sim\n2- N√£o");
                         int demitir = 0;
                         
                         while(j){
                             try{
                                 demitir = in.nextInt();
-                                break;
-                            }catch(NumberFormatException e){
-                                System.out.println("Digite apenas valores v·lidos");
+                                if(funcao.entradaValida1(demitir)){
+                                    break;
+                                }else {
+                                    System.out.println("Digite apenas os valores listados");
+                                }
+                            }catch(InputMismatchException e){
+                                in.nextLine();
+                                System.out.println("Digite apenas os valores listados");
                             }
+                            
                         }
-                        while(j){
-                            if(demitir < 1 || demitir > 2){
+                        /*
+                        if(demitir < 1 || demitir > 2){
                                 System.out.println("Digite apenas os valores listados");
                                 while(j){
                                     try{
                                         demitir = in.nextInt();
                                         break;
                                     }catch(NumberFormatException e){
-                                        System.out.println("Digite apenas valores v·lidos");
+                                        System.out.println("Digite apenas valores v√°lidos");
                                     }
                                 }
                             }else break;
-                        }
-                        
+                        */
                         
                         if(demitir ==  1){                           
-                            System.out.println("Digite os dados do funcion·rio");
-                            System.out.println("Digite o cpf do funcion·rio");
+                            System.out.println("Digite os dados do funcion√°rio");
+                            System.out.println("Digite o cpf do funcion√°rio");
+                            in.nextLine();
                             String fCpf2 = in.nextLine();
 
                             for(Funcionario fdemitir : fc){
@@ -262,8 +285,22 @@ public class AdmMenu {
                                     System.out.println(fdemitir.getFuncao());
                                     System.out.println(fdemitir.getSalario());
 
-                                    System.out.println("Deseja demiti-lo?\n1- Sim\n2- N„o");
-                                    int demissao = in.nextInt();
+                                    System.out.println("Deseja demiti-lo?\n1- Sim\n2- N√£o");
+                                    int demissao = 0; 
+                                    while(j){
+                                        try{
+                                            demissao = in.nextInt();
+                                            in.nextLine();
+                                            if(demissao >= 1 && demissao < 3){
+                                                break;
+                                            }else{
+                                                System.out.println("Digite entradas v√°lidas");
+                                            }
+                                        }catch(InputMismatchException e){
+                                            in.nextLine();
+                                            System.out.println("Digite somente entradas v√°lidas");
+                                        }
+                                    }
 
                                     if(demissao == 1){
                                         fdemitir.setCpf("0");
@@ -277,108 +314,111 @@ public class AdmMenu {
                         
                         break;
                     case 3:
-                        System.out.println("Deseja ver os funcion·rios contratados?\n1- Sim\n2- N„o");
+                        System.out.println("Deseja ver os funcion√°rios contratados?\n1- Sim\n2- N√£o");
                         int lista = 0;
                                
                         while(j){
                             try{
                                 lista = in.nextInt();
-                                break;
-                            }catch(NumberFormatException e){
-                                System.out.println("Digite apenas valores v·lidos");
-                            }
-                        }        
-                        while(j){
-                            if(lista < 1 || lista >2){
+                                if(funcao.entradaValida1(lista)){
+                                    break;
+                                }else{
+                                    System.out.println("Digite apenas os valores listados");
+                                }
+                            }catch (InputMismatchException e){
                                 System.out.println("Digite apenas os valores listados");
-                            }else break;
+                            }
                         }
                         
                         if(lista == 1){
-                            fc.stream().map((listar) -> {
-                                System.out.println("=======================================");
-                                return listar;
-                            }).map((listar) -> {
-                                System.out.println(listar.getCpf());
-                                return listar;
-                            }).map((listar) -> {
-                                System.out.println(listar.getNome());
-                                return listar;
-                            }).map((listar) -> {
-                                System.out.println(listar.getIdade());
-                                return listar;
-                            }).map((listar) -> {
-                                System.out.println(listar.getFuncao());
-                                return listar;
-                            }).map((listar) -> {
-                                System.out.println(listar.getSalario());
-                                return listar;
-                            }).map((listar) -> {
-                                System.out.println(listar.getDisponibilidade());
-                                return listar;
-                            }).forEachOrdered((_item) -> {
-                                System.out.println("=======================================");
-                            });
+                            for(Funcionario funn: fc){
+                                System.out.println("==============================");
+                                System.out.println(funn.getNome());
+                                System.out.println(funn.getFuncao());
+                                System.out.println(funn.getSalario());
+                                System.out.println(funn.getCpf());
+                                System.out.println(funn.getDisponibilidade());
+                                System.out.println("==============================");
+                            }
                         }  
                         
                         break;                       
                     case 4:
-                        System.out.println("Deseja alterar os dados de algum funcion·rio?\n1- Sim\n2- N„o?");
+                        System.out.println("Deseja alterar os dados de algum funcion√°rio?\n1- Sim\n2- N√£o");
                         int alterar = 0;
                         
                         while(j){
                             try{
+                                
                                 alterar = in.nextInt();
-                                break;
-                            }catch(NumberFormatException e){
+                                if(funcao.entradaValida1(alterar)){    
+                                    break;
+                                }else{
+                                    System.out.println("Digite apenas os valores listados");
+                                }
+                            }catch(InputMismatchException e){
+                                in.nextLine();
                                 System.out.println("Digite apenas os valores listados");
                             }
                         }
-                        while(j){
-                            if(alterar < 1 || alterar > 2){
-                                System.out.println("Digite apenas os valores listados");
-                            }else break;
-                        }
+                        
                         
                         if(alterar == 1){    
-                            System.out.println("Digite o cpf do funcion·rio");
+                            System.out.println("Digite o cpf do funcion√°rio");
+                            in.nextLine();
                             String aCpf = in.nextLine();
-        
-                            fc.stream().filter((alterar2) -> (aCpf.equals(alterar2.getCpf()))).map((alterar2) -> {
-                                System.out.println("Deseja alterar a idade?\n1- Sim\n2- N„o");
-                                return alterar2;
-                            }).map((alterar2) -> {
-                                int idadeA = in.nextInt();
-                                if(idadeA == 1){
-                                    System.out.println("Digite a nova idade");
-                                    idadeA =  0;
+
+                            for(Funcionario funcio: fc){
+                                if(funcio.getCpf().equals(aCpf)){
+                                    System.out.println("Digite uma nova idade");
+                                    int idadeA = 0;
                                     while(j){
                                         try{
                                             idadeA = in.nextInt();
-                                            break;
-                                        }catch(NumberFormatException e){
-                                            System.out.println("Digite apenas valores v·lidos");
+                                            if(idadeA >= 18 && idadeA < 75){
+                                                funcio.setIdade(idadeA);
+                                                break;
+                                            }else{
+                                                System.out.println("Idade inv√°lida");
+                                            }
+                                        }catch(InputMismatchException e){
+                                            in.nextLine();
+                                            System.out.println("Digite n√∫meros inteiros v√°lidos");
                                         }
                                     }
-                                    if(idadeA < 18 || idadeA > 80){
-                                        System.out.println("Digite apenas valores v·lidos (Idade > 18 ou Idade < 80)");
-                                    }
                                     
-                                    alterar2.setIdade(idadeA);
+                                    System.out.println("Deseja alterar o sal√°rio\n1- Sim\n2-N√£o");
+                                    int dinheiro = 0;
+                                    
+                                    while(j){
+                                        try{
+                                            dinheiro = in.nextInt();
+                                            if(funcao.entradaValida1(dinheiro))
+                                                break;
+                                            else System.out.println("Digite apenas os valores listados");
+                                        }catch(InputMismatchException e){
+                                            in.nextLine();
+                                            System.out.println("Digite apenas os valores listados");
+                                        }
+                                    }
+                                    if(dinheiro == 1){
+                                        System.out.println("Digite o novo sal√°rio");
+                                        int novoSalario = 0;
+                                        while(j){
+                                            try{
+                                                novoSalario = in.nextInt();
+                                                if(novoSalario > 998 && novoSalario < 75000){
+                                                    funcio.setSalario(novoSalario);
+                                                    break;
+                                                }else System.out.println("Digite apenas os valores listados");
+                                            }catch(InputMismatchException e){
+                                                System.out.println("Digite apenas os valores listados");
+                                            }
+                                        }
+                                    }
                                 }
-                                return alterar2;
-                            }).map((alterar2) -> {
-                                System.out.println("Deseja alterar o sal·rio?\n1- Sim\n2- N„o");
-                                return alterar2;
-                            }).forEachOrdered((alterar2) -> {
-                                int salarioA = in.nextInt();
-                                if (salarioA == 1) {
-                                    System.out.println("Digite o novo idade");
-                                    salarioA = in.nextInt();
-                                    alterar2.setSalario(salarioA);
-                                }
-                            });
-                        }
+                            }
+                        }    
                         break;
                     case 5:                     
                             System.out.println("Digite o cpf do funcionario");
@@ -389,21 +429,21 @@ public class AdmMenu {
                             for(Funcionario fg: fc){
                                 if(fg.getCpf().equals(cpff)){
                                     fg.bonus();
-                                    System.out.println("Funcion·rio bonificado");
+                                    System.out.println("Funcuion√°rio bonificado");
                                 }
                             }
                             
                         break;
                     case 6:
-                            System.out.println("Digite o cpf do funcion·rio");
+                            System.out.println("Digite o cpf do funcion√°rio");
                             in.nextLine();
                             String cpff2 = in.nextLine();
                             
                             
                             for(Funcionario fg: fc){
                                 if(fg.getCpf().equals(cpff2)){
-                                    fg.puniÁao();
-                                    System.out.println("Funcion·rio punido");
+                                    fg.puni√ßao();
+                                    System.out.println("Funcion√°rio punido");
                                 }
                             }
                         break;
@@ -412,5 +452,3 @@ public class AdmMenu {
 	}while(opcaoadmMenu != 0);     
     }
 }
-    
-
