@@ -262,12 +262,16 @@ public class Menu{
                                         
                                         if(classe == 1){
                                             c1.pass.classe("Presidencial");
+                                            c1.pass.setClasse("Presidencial");
                                         }else if(classe == 2){
                                             c1.pass.classe("Luxo");
+                                            c1.pass.setClasse("Luxo");
                                         }else if(classe == 3){
                                             c1.pass.classe("Conforto");
+                                            c1.pass.setClasse("Conforto");
                                         }else{
                                             c1.pass.classe("Simples");
+                                            c1.pass.setClasse("Simples");
                                         }
                                     }
                                 }
@@ -296,7 +300,6 @@ public class Menu{
                         int checkin = 0;
                         while(j){
                             try{
-                                System.out.println("aaaaaaaaaaa");
                                 checkin = in.nextInt();
                                 break;
                             }catch(InputMismatchException e){
