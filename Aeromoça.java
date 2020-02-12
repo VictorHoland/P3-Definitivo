@@ -9,13 +9,13 @@ package projeto;
  *
  * @author Victor
  */
-public class Aeromoça extends Funcionario {
+public class AeromoÃ§a extends Funcionario {
  
     private String curso;
     private String idioma;
     private String idioma2;
     
-    public Aeromoça(String pNome, int pIdade, int pSalario, String pCpf, String pFuncao) {
+    public AeromoÃ§a(String pNome, int pIdade, int pSalario, String pCpf, String pFuncao) {
         super(pNome, pIdade, pSalario, pCpf, pFuncao);
     }
 
@@ -42,7 +42,4 @@ public class Aeromoça extends Funcionario {
     public void setIdioma2(String idioma2) {
         this.idioma2 = idioma2;
     }
-    
-    
-    
 }
