@@ -41,7 +41,7 @@ public class Menu{
                         break;
                     case 1: 
                         
-                        if(!adm.verificarDisponibilidade()){
+                        if(adm.verificarDisponibilidade()){
                         
                             System.out.println("Deseja agendar um vôo?\n1- Sim\n2- Não");
                             int agendar = 0;
