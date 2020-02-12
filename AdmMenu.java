@@ -333,11 +333,12 @@ public class AdmMenu {
                         if(lista == 1){
                             for(Funcionario funn: fc){
                                 System.out.println("==============================");
-                                System.out.println(funn.getNome());
-                                System.out.println(funn.getFuncao());
-                                System.out.println(funn.getSalario());
-                                System.out.println(funn.getCpf());
-                                System.out.println(funn.getDisponibilidade());
+                                System.out.println("Nome :"+funn.getNome());
+                                System.out.println("Idade :"+funn.getIdade());
+                                System.out.println("Função :"+funn.getFuncao());
+                                System.out.println("Salário :"+funn.getSalario());
+                                System.out.println("Cpf :"+funn.getCpf());
+                                System.out.println("Está disponivél :"+funn.getDisponibilidade());
                                 System.out.println("==============================");
                             }
                         }  
