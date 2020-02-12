@@ -30,29 +30,41 @@ pode reservar uma passagem apenas(Como não fiz uso de tempo, não é possivel r
 Funcionalidades
 1- Criar conta
 
+
 2- Logar/Deslogar
+
 
 3- Recuperar conta
 
 4- Deletar conta
 
 5- check in
+-Confirmação da compra
 
-Confirmação da compra
+
 6- Gerenciar voos
+-cancelar voo
 
-cancelar voo
+
 7- Empregados
+-função
+-salário
+-Punir/Bonificar
+-Ver lista de funcionários
 
-função
-salário -Punir/Bonificar -Ver lista de funcionários
-8- Gerenciar funcionarios -contratar -demitir -Alterar dados do funcionário
 
-9- Verificar os estatos do cliente -alterar senha
+8- Gerenciar funcionarios
+-contratar
+-demitir
+-Alterar dados do funcionário
+
+
+9- Verificar os estatos do cliente 
+-alterar senha
+
 
 10- Passagens
-
-locais onde vai viajar
-O tipo de voo
+-locais onde vai viajar
+-A classe do voo
 
 
