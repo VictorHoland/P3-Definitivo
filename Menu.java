@@ -76,7 +76,7 @@ public class Menu{
                                         }else System.out.println("Digite apenas os valores listados");
                                     }catch(InputMismatchException e){
                                         in.nextLine();
-                                        System.out.println("Digite apenas os vlores listados");
+                                        System.out.println("Digite apenas os valores listados");
                                     }
                                 }
                                         
