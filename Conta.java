@@ -9,6 +9,7 @@ public class Conta {
     private String nome;
     private String senha;
     static int qtdcontas = 0;
+    public Passagem pass = new Passagem("Vazio");
     
     public Conta (){        
         qtdcontas++;
@@ -64,7 +65,5 @@ public class Conta {
         System.out.println("Dados da Conta");
         System.out.println("Seja bem vindo(a)"+ getNome());
     }
-    
-    
             
 }
