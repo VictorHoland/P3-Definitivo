@@ -107,8 +107,6 @@ public class Menu{
                                  c1.pass.setLocalizacao(local);
 
                                 System.out.println("Escola o destino\n");
-                                System.out.println("Qual sua localização atual\n");
-                                System.out.println("1- Brasil, AL- MCZ");
                                 System.out.println("2- Brasil, SP- São Bernado do Campo");
                                 System.out.println("3- EUA, CA- São Francisco");
                                 System.out.println("4- Inglaterra, LPL- Garston");
@@ -288,6 +286,7 @@ public class Menu{
                             if(!c1.pass.getCheckin() || c1.pass.getPreco() == 0){
                                 c1.pass.setDestino("Vazio");
                                 c1.pass.setLocalizacao("Vazio");
+                                c1.pass.setClasse("Vazio");
                                 c1.pass.setPreco(0);
                                 adm.agendaCancelada();
                             }else
