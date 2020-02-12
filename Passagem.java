@@ -15,9 +15,18 @@ public class Passagem {
     protected String localizacao = "Vazio";
     protected String destino = "Vazio";
     private boolean checkin = false;
+    private String classe = "Vazio";
 
     public Passagem(String localizacao) {
         this.localizacao = localizacao;
+    }
+
+    public String getClasse() {
+        return classe;
+    }
+
+    public void setClasse(String classe) {
+        this.classe = classe;
     }
 
     public boolean getCheckin() {
@@ -72,6 +81,7 @@ public class Passagem {
     public void estatos(){
         System.out.println("De:    "+this.getLocalizacao());
         System.out.println("Para:  "+this.getDestino());
+        System.out.println("Class: "+this.getClasse());
         System.out.println("Preço: "+this.getPreco());
         
     }
