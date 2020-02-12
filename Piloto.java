@@ -15,7 +15,7 @@ public class Piloto extends Funcionario{
     //tipo de vôo
     private String idioma;
     private String idioma2;
-    private String forma�ao;
+    private String formação;
 
     public Piloto(String pNome, int pIdade, int pSalario, String pCpf, String pFuncao) {
         super(pNome, pIdade, pSalario, pCpf, pFuncao);
@@ -45,12 +45,12 @@ public class Piloto extends Funcionario{
         this.idioma2 = idioma2;
     }
 
-    public String getForma�ao() {
-        return forma�ao;
+    public String getFormação() {
+        return formação;
     }
 
-    public void setForma�ao(String forma�ao) {
-        this.forma�ao = forma�ao;
+    public void setFormação(String formação) {
+        this.formação = formação;
     }
     
     @Override
@@ -59,7 +59,7 @@ public class Piloto extends Funcionario{
     }
     
     @Override
-    public void puni�ao(){
+    public void puniçao(){
         this.salario = this.salario - 500;
     }
 
