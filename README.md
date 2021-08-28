@@ -1,7 +1,7 @@
 O código se trata de um sistema de vôos particulares onde cada cliente pode fazer um(1) agendamento de um vôo.
 
 
-Para pode executar o vôo é necessário a admissão de ao menos um(1) um funcionário de cada tipo(Piloto, Aeromoça e Faxineiro).
+Para poder executar o vôo é necessário a admissão de ao menos um(1) um funcionário de cada tipo(Piloto, Aeromoça e Faxineiro).
 Para acessar o Menu de administração é só digitar no Menu de cliente "99", e escolher a opção "1- Sim", e digitar a senha
 padrão do administrador "admin".
 
