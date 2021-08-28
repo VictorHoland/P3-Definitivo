@@ -5,7 +5,7 @@ Para poder executar o vôo é necessário a admissão de ao menos um(1) um funci
 Para acessar o Menu de administração é só digitar no Menu de cliente "99", e escolher a opção "1- Sim", e digitar a senha
 padrão do administrador "admin".
 
-No Menu de administração poderá admitir, demitir, alterar alguns dados ,incluindo o salário, de cada funcionário,visualizar
+No Menu de administração poderá contratar, demitir, alterar alguns dados, incluindo o salário, de cada funcionário,visualizar
 todos os funcionários já contratados, punir descontando do salário ou bonificar adicionando uma quantia pré-definida,
 utilizando o cpf do funcionário a ser visto.
 
